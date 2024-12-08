@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}Tema: {{ tema.nombre }}{% endblock %}
+
+{% block content %}
+<h2>Tema: {{ tema.nombre }}</h2>
+<p><strong>Descripción:</strong> {{ tema.descripcionArea }}</p>
+
+<h3>Artículos Relacionados</h3>
+<ul>
+    {% for articulo in articulosRelacionados %}
+        <li>
+            <a href="{% url 'wikiApp:verArticulo' articulo.id %}" style="text-decoration: none; color: #007bff;">
+                <strong>{{ articulo.titulo }}</strong>
+            </a>
+        </li>
+    {% empty %}
+        <li>No hay artículos relacionados con este tema.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

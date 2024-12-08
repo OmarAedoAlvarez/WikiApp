@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block title %}Crear Nuevo Artículo{% endblock %}
+
+{% block content %}
+<h2>Crear Nuevo Artículo</h2>
+<form method="post">
+  {% csrf_token %}
+  <label for="titulo">Título:</label>
+  <input type="text" name="titulo" required style="width: 100%; margin-bottom: 10px;">
+  
+  <label for="descripcion">Descripción:</label>
+  <textarea name="descripcion" required style="width: 100%; margin-bottom: 10px;"></textarea>
+  
+  <label for="tema">Tema Relacionado:</label>
+  <select id="tema" name="tema" required style="width: 100%; margin-bottom: 10px;">
+    <option value="">-- Seleccionar Tema --</option>
+    {% for t in temas %}
+      <option value="{{ t.id }}">{{ t.nombre }}</option>
+    {% endfor %}
+  </select>
+  
+  <button type="submit" style="padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Guardar</button>
+</form>
+{% endblock %}

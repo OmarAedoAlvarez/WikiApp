@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block title %}Crear Nuevo Tema{% endblock %}
+
+{% block content %}
+<h2>Crear Nuevo Tema</h2>
+<form method="post">
+  {% csrf_token %}
+  <!-- Campo para el nombre del tema -->
+  <label for="nombreTema">Nombre del Tema:</label>
+  <input type="text" name="nombreTema" required style="width: 100%; margin-bottom: 10px;">
+  
+  <!-- Campo para la descripción del tema -->
+  <label for="descripcionArea">Descripción:</label>
+  <textarea  name="descripcionArea" required style="width: 100%; margin-bottom: 10px;"></textarea>
+  
+  <!-- Botón de envío -->
+  <button type="submit" style="padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Guardar</button>
+</form>
+{% endblock %}
